@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -14,12 +14,15 @@ set.seed(35487)
 knitr::read_chunk(path = "../inst/plumber/loess/plumber.R",
                   labels = "loess")
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  # from CRAN
 #  install.packages("plumbertableau")
 #  
 #  # from GitHub
 #  remotes::install_github("rstudio/plumbertableau")
+
+## -----------------------------------------------------------------------------
+plumber::available_apis(package = "plumbertableau")
 
 ## ----fig.width=6.5, fig.height=4.5--------------------------------------------
 x <- seq(1, 10, length.out = 100)
@@ -53,7 +56,7 @@ lines(x, y_fit)
 #  #* @plumber
 #  tableau_extension
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  #* Annotate me!
 #  function(x, y, alpha = 0.75) {
 #    alpha <- as.numeric(alpha)
@@ -61,23 +64,23 @@ lines(x, y_fit)
 #    predict(l_out, data.frame(x, y))
 #  }
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  #* @tableauArg x:integer X values for fitting
 #  #* @tableauArg y:numeric Y values for fitting
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  #* @tableauArg y:numeric? Y values for fitting
 #  
 #  **Data returned to Tableau** is described with `@tableauReturn`. The syntax is similar to `@tableauArg`, without an argument name: `#* @tableauReturn Type Description`.
 #  
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  #* @tableauReturn numeric Fitted loess values
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  #* @param alpha Degree of smoothing
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  #* @plumber
 #  tableau_extension
 
